@@ -14,33 +14,7 @@ const { hideBin } = require('yargs/helpers')
 const argv = yargs(hideBin(process.argv)).argv
 // coffee vending machine
 
-function CoffeeVending(obj ){
-    let mochaCount=obj["mocha"];
-    let capachino=obj.cappuccino //obj["cappuccino"]; // 
-    let latte=obj["latte"];
-    // Will create a bill 
-    const mochCost=200*Number(mochaCount);
-    const capachinoCost=300*Number(capachino);
-    const latteCost=500*Number(latte);
-
-    let finalBill=mochCost+capachinoCost+latteCost;
-
-    return finalBill
-
-}
-
-let orderObj={
-    "mocha":argv.mocha,
-    "cappuccino":argv.cappuccino,
-    "latte":argv.latte
-
-}
-
-let totalBill=CoffeeVending(orderObj);
-
-//console.log("final Bill---",totalBill)
-
-console.log(process);
+// 
 
 
 // You have to build a library managment system
@@ -48,3 +22,30 @@ console.log(process);
 // you will have books array =[{name:"harry potter","id":1}];
 // node library.js --bookid=1 --name=shubham --duration=15days
 // Output Book allotted ,name --harry potter ,duration 15 days
+let books = [{
+    name: 'Harrypotter',
+    id: 1
+},{
+    name: 'fairytales',
+    id: 2
+},{
+    name: 'atomichabits',
+    id: 3
+}]
+
+let myfunc = (bookss) =>{
+ 
+   let name = argv.name;
+   // filter the id 
+   let findObj=books.find(ele=>ele.id==argv.id)
+    let bookName = findObj.name
+    let days = argv.days;
+ 
+    console.log(`Books allotted, ${name} ${bookName}, duration ${days}days`)
+}
+ 
+
+ 
+myfunc(books)
+
+
